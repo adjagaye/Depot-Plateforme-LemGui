@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class DetailsBureau {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY )
-    private long idBureau;
+    private long idDetailsBureau;
 
     @ManyToOne
     @JoinColumn(name="ID_Poste")
@@ -15,21 +15,34 @@ public class DetailsBureau {
     @ManyToOne
     @JoinColumn(name="ID_Membre")
     private Membre membre;
+    @ManyToOne
+    @JoinColumn(name="ID_Bureau")
+    private Bureau bureau;
 
     public DetailsBureau() {
     }
 
-    public DetailsBureau(Poste poste, Membre membre) {
+    public DetailsBureau(Poste poste, Membre membre,Bureau bureau) {
         this.poste = poste;
         this.membre = membre;
+        this.bureau = bureau;
     }
 
-    public long getIdBureau() {
-        return idBureau;
+
+    public long getIdDetailsBureau() {
+        return idDetailsBureau;
     }
 
-    public void setIdBureau(long idBureau) {
-        this.idBureau = idBureau;
+    public void setIdDetailsBureau(long idDetailsBureau) {
+        this.idDetailsBureau = idDetailsBureau;
+    }
+
+    public Bureau getBureau() {
+        return bureau;
+    }
+
+    public void setBureau(Bureau bureau) {
+        this.bureau = bureau;
     }
 
     public Poste getPoste() {

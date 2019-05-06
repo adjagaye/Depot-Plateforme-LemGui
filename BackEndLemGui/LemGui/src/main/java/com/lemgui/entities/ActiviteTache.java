@@ -25,7 +25,7 @@ public class ActiviteTache {
     private Ressource ressource;
     @ManyToOne
     @JoinColumn(name="ID_Tache")
-    private Taches tache;
+    private Taches taches;
 
 }
 

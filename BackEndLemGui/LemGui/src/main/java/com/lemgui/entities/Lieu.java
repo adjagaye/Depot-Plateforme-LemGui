@@ -1,13 +1,12 @@
 package com.lemgui.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Lieu {
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY )
     private long idLieu;
     private String nomLieu;
     @OneToMany(mappedBy ="lieu", fetch = FetchType.LAZY)

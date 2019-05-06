@@ -6,6 +6,8 @@ import java.util.List;
 
 @Entity
 public class DetailsProgramme {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY )
     private long idDetailsProgramme;
     private int periode;
     private int etat;

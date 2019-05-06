@@ -1,11 +1,11 @@
 package com.lemgui.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class ActiviteCible {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY )
     private long idActiviteCible;
     @ManyToOne
     @JoinColumn(name="ID_Cible")

@@ -17,7 +17,7 @@ public class Domaine {
     private int etat;
 
     @OneToMany(mappedBy ="domaine", fetch = FetchType.LAZY)
-    private List<Activite> activites;
+    private List<ActiviteDomaine> activiteDomaines;
 
     public Domaine() {
     }
@@ -96,11 +96,11 @@ public class Domaine {
         this.etat = etat;
     }
 
-    public List<Activite> getActivites() {
-        return activites;
+    public List<ActiviteDomaine> getActiviteDomaines() {
+        return activiteDomaines;
     }
 
-    public void setActivites(List<Activite> activites) {
-        this.activites = activites;
+    public void setActiviteDomaines(List<ActiviteDomaine> activiteDomaines) {
+        this.activiteDomaines = activiteDomaines;
     }
 }

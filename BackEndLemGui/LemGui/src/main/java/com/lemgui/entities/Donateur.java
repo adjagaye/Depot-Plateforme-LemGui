@@ -1,6 +1,7 @@
 package com.lemgui.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Donateur {
@@ -17,11 +18,17 @@ public class Donateur {
     @ManyToOne
     @JoinColumn(name="ID_TypeDonateur")
     private TypeDonateur typeDonateur;
+    private String statut;
+
+    @OneToMany(mappedBy ="donateur", fetch = FetchType.LAZY)
+    private List<Dons> dons;
+    @OneToMany(mappedBy ="donateur", fetch = FetchType.LAZY)
+    private List<ActiviteTache> activiteTaches;
 
     public Donateur() {
     }
 
-    public Donateur(String nomDonateur, String adresse, String email, String adressFacebook, String adresstwitter, String adresstlinkedin, String adressPinterest, TypeDonateur typeDonateur) {
+    public Donateur(String nomDonateur, String adresse, String email, String adressFacebook, String adresstwitter, String adresstlinkedin, String adressPinterest, TypeDonateur typeDonateur,String statut) {
         this.nomDonateur = nomDonateur;
         this.adresse = adresse;
         this.email = email;
@@ -102,5 +109,13 @@ public class Donateur {
 
     public void setTypeDonateur(TypeDonateur typeDonateur) {
         this.typeDonateur = typeDonateur;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 }

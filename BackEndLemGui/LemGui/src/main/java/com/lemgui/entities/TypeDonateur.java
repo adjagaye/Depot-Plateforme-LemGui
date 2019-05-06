@@ -11,4 +11,35 @@ public class TypeDonateur {
     private String libelleDonateurs;
     @OneToMany(mappedBy ="typeDonateur", fetch = FetchType.LAZY)
     private List<Donateur> donateurs;
+
+    public TypeDonateur() {
+    }
+
+    public TypeDonateur(String libelleDonateurs) {
+        this.libelleDonateurs = libelleDonateurs;
+    }
+
+    public long getIdTypeDonateur() {
+        return idTypeDonateur;
+    }
+
+    public void setIdTypeDonateur(long idTypeDonateur) {
+        this.idTypeDonateur = idTypeDonateur;
+    }
+
+    public String getLibelleDonateurs() {
+        return libelleDonateurs;
+    }
+
+    public void setLibelleDonateurs(String libelleDonateurs) {
+        this.libelleDonateurs = libelleDonateurs;
+    }
+
+    public List<Donateur> getDonateurs() {
+        return donateurs;
+    }
+
+    public void setDonateurs(List<Donateur> donateurs) {
+        this.donateurs = donateurs;
+    }
 }

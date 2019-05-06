@@ -2,6 +2,7 @@ package com.lemgui.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Membre {
@@ -17,6 +18,11 @@ public class Membre {
     @ManyToOne
     @JoinColumn(name="ID_TypeMembre")
     private TypeMembre typeMembre;
+
+    @OneToMany(mappedBy ="membre", fetch = FetchType.LAZY)
+    private List<MembreCommission> membreCommissions;
+    @OneToMany(mappedBy ="membre", fetch = FetchType.LAZY)
+    private List<DetailsBureau> detailsBureaux;
 
     public Membre() {
     }
@@ -84,5 +90,21 @@ public class Membre {
 
     public void setTypeMembre(TypeMembre typeMembre) {
         this.typeMembre = typeMembre;
+    }
+
+    public List<MembreCommission> getMembreCommissions() {
+        return membreCommissions;
+    }
+
+    public void setMembreCommissions(List<MembreCommission> membreCommissions) {
+        this.membreCommissions = membreCommissions;
+    }
+
+    public List<DetailsBureau> getDetailsBureaux() {
+        return detailsBureaux;
+    }
+
+    public void setDetailsBureaux(List<DetailsBureau> detailsBureaux) {
+        this.detailsBureaux = detailsBureaux;
     }
 }

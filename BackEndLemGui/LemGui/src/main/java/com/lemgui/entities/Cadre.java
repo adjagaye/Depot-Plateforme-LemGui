@@ -8,34 +8,36 @@ import javax.persistence.Id;
 @Entity
 public class Cadre {
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY )
-    private int cadre;
-    private String nomCadre;
+    private int idCadre;
+    private String titre;
     private String iconeCadre;
+    private String text;
     private int etat;
 
     public Cadre() {
     }
 
-    public Cadre(String nomCadre, String iconeCadre, int etat) {
-        this.nomCadre = nomCadre;
+    public Cadre(String titre, String iconeCadre, String text, int etat) {
+        this.titre = titre;
         this.iconeCadre = iconeCadre;
+        this.text = text;
         this.etat = etat;
     }
 
-    public int getCadre() {
-        return cadre;
+    public int getIdCadre() {
+        return idCadre;
     }
 
-    public void setCadre(int cadre) {
-        this.cadre = cadre;
+    public void setIdCadre(int idCadre) {
+        this.idCadre = idCadre;
     }
 
-    public String getNomCadre() {
-        return nomCadre;
+    public String getTitre() {
+        return titre;
     }
 
-    public void setNomCadre(String nomCadre) {
-        this.nomCadre = nomCadre;
+    public void setTitre(String titre) {
+        this.titre = titre;
     }
 
     public String getIconeCadre() {
@@ -52,5 +54,13 @@ public class Cadre {
 
     public void setEtat(int etat) {
         this.etat = etat;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

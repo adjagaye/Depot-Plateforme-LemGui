@@ -1,9 +1,7 @@
 package com.lemgui.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Commission {
@@ -15,6 +13,12 @@ public class Commission {
     private long telPresident;
     private String email;
     private int etat;
+
+    @OneToMany(mappedBy ="commission", fetch = FetchType.LAZY)
+    private List<ActiviteTache> activiteTaches;
+    @OneToMany(mappedBy ="commission", fetch = FetchType.LAZY)
+    private List<ActiviteCommission> activiteCommissions;
+
 
     public Commission() {
     }

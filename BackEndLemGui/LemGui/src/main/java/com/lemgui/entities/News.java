@@ -1,9 +1,6 @@
 package com.lemgui.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class News {
@@ -14,4 +11,48 @@ public class News {
     private String descriptionNews;
     private String auteur;
 
+    @ManyToOne
+    @JoinColumn(name="ID_TypeNews")
+    private TypeNews typeNews;
+
+    public News() {
+    }
+
+    public News(String imageNews, String descriptionNews, String auteur) {
+        this.imageNews = imageNews;
+        this.descriptionNews = descriptionNews;
+        this.auteur = auteur;
+    }
+
+    public long getIdNews() {
+        return idNews;
+    }
+
+    public void setIdNews(long idNews) {
+        this.idNews = idNews;
+    }
+
+    public String getImageNews() {
+        return imageNews;
+    }
+
+    public void setImageNews(String imageNews) {
+        this.imageNews = imageNews;
+    }
+
+    public String getDescriptionNews() {
+        return descriptionNews;
+    }
+
+    public void setDescriptionNews(String descriptionNews) {
+        this.descriptionNews = descriptionNews;
+    }
+
+    public String getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
 }

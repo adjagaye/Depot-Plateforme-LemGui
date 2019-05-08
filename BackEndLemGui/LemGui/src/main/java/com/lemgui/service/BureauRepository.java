@@ -1,4 +1,9 @@
 package com.lemgui.service;
 
-public class BureauRepository {
+import com.lemgui.entities.Bureau;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource
+public interface BureauRepository extends JpaRepository<Bureau,Long> {
 }

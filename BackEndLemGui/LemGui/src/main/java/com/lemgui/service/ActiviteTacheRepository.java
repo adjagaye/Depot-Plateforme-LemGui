@@ -1,4 +1,9 @@
 package com.lemgui.service;
 
-public interface ActiviteTacheRepository {
+import com.lemgui.entities.ActiviteTache;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource
+public interface ActiviteTacheRepository extends JpaRepository<ActiviteTache,Long> {
 }

@@ -1,4 +1,9 @@
 package com.lemgui.service;
 
-public interface LieuRepository {
+import com.lemgui.entities.Lieu;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource
+public interface LieuRepository extends JpaRepository<Lieu,Long> {
 }

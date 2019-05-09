@@ -67,8 +67,7 @@ const routes: Routes = [
   { path: 'typemembre', component: TypeMembreComponent },
   { path: 'typenews', component: TypeNewsComponent },
   { path: 'authentication', component: AuthentificationComponent },
-  { path: 'accueil', component: AppComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+
 ];
 
 @NgModule({

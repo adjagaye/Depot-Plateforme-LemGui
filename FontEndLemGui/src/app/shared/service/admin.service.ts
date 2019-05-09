@@ -8,7 +8,6 @@ import {Membre} from '../model/membre';
 })
 export class AdminService {
   public host:string="http://localhost:8080";
-
   constructor(private http:HttpClient) { }
 
 
@@ -18,5 +17,16 @@ export class AdminService {
 
 
 
+  public saveResource(url,objet){
+    return  this.http.post(this.host+url,objet);
 
+  }
+
+  public updateContact(url,objet,id:number){
+    return  this.http.put(this.host+url+id,objet);
+  }
+
+  public deleteContact(id:number,url){
+    return  this.http.delete(this.host+url+id);
+  }
 }

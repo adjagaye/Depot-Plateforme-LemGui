@@ -1,3 +1,91 @@
-<p>
-  domaine works!
-</p>
+<div class="position">
+  <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Designation</th>
+    <th scope="col">Realisation</th>
+    <th scope="col">But</th>
+    <th scope="col">Etat</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+    <td>@mdo</td>
+    <td>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        <label>Afficher</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+        <label>Cacher</label>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td>@fat</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td>Larry</td>
+    <td>the Bird</td>
+    <td>@twitter</td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #erreur>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Ajout Domaine</h4>
+  </div>
+  <div class="modal-body ">
+    <div class="container">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label >Nom Domaine</label>
+          <input type="text" class="form-control" id="nomDomaine" required>
+        </div>
+
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="imageDomaine">
+          <label class="custom-file-label" for="imageDomaine">Choose Image</label>
+        </div>
+
+        <div class="form-group">
+          <label >But</label>
+          <input type="number" class="form-control" id="but" required>
+        </div>
+
+        <div class="form-group">
+          <label >Etat</label>
+          <input type="number" class="form-control" id="etat" required>
+        </div>
+
+        <div class="form-group">
+          <label >Description</label>
+          <textarea type="text" class="form-control" id="descriptionDomaine">
+          </textarea>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+      Annuler
+    </button>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+  </div>
+
+</ng-template>
+

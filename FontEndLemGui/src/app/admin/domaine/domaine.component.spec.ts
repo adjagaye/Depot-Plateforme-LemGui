@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import  { ModalModule } from 'ngx-bootstrap';
 
 import { DomaineComponent } from './domaine.component';
 

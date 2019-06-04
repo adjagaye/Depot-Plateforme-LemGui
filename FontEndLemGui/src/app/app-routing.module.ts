@@ -30,9 +30,10 @@ import {TypeActiviteComponent} from './admin/type-activite/type-activite.compone
 import {TypeDonateurComponent} from './admin/type-donateur/type-donateur.component';
 import {TypeMembreComponent} from './admin/type-membre/type-membre.component';
 import {TypeNewsComponent} from './admin/type-news/type-news.component';
-import {AppComponent} from './app.component';
 import {AuthentificationComponent} from './admin/authentification/authentification.component';
 import {NewComponent} from './admin/new/new.component';
+import {AccueilComponent} from './font/accueil/accueil.component';
+import {SlidesComponent} from './admin/slides/slides.component';
 
 const routes: Routes = [
   { path: 'actviteindicateur', component: ActiviteIndicateurComponent },
@@ -66,7 +67,11 @@ const routes: Routes = [
   { path: 'typedonateur', component: TypeDonateurComponent },
   { path: 'typemembre', component: TypeMembreComponent },
   { path: 'typenews', component: TypeNewsComponent },
-  { path: 'authentication', component: AuthentificationComponent },
+  { path: 'authentification', component: AuthentificationComponent},
+  { path: 'slide', component: SlidesComponent},
+  { path: 'cadre', component: CadreComponent},
+  { path: 'accueil', component: AccueilComponent},
+  {path:'',redirectTo: '/menu',pathMatch:'full'}
 
 ];
 

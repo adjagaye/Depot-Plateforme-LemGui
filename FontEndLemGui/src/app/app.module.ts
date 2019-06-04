@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { SlideComponent } from './slide/slide.component';
-import { CadresComponent } from './cadres/cadres.component';
-import { DomainesComponent } from './domaines/domaines.component';
-import { NewsComponent } from './news/news.component';
-import { DonateursComponent } from './donateurs/donateurs.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from './font/navigation/navigation.component';
+import { SlideComponent } from './font/slide/slide.component';
+import { CadresComponent } from './font/cadres/cadres.component';
+import { DomainesComponent } from './font/domaines/domaines.component';
+import { NewsComponent } from './font/news/news.component';
+import { DonateursComponent } from './font/donateurs/donateurs.component';
+import { ContactsComponent } from './font/contacts/contacts.component';
+import { FooterComponent } from './font/footer/footer.component';
 import { AuthentificationComponent } from './admin/authentification/authentification.component';
 import { MenuComponent } from './admin/menu/menu.component';
 import { ActiviteIndicateurComponent } from './admin/activite-indicateur/activite-indicateur.component';
@@ -43,6 +43,10 @@ import { TypeMembreComponent } from './admin/type-membre/type-membre.component';
 import { TypeNewsComponent } from './admin/type-news/type-news.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NewComponent } from './admin/new/new.component';
+import {FormsModule} from '@angular/forms';
+import { AccueilComponent } from './font/accueil/accueil.component';
+import {BsModalService, ModalModule} from 'ngx-bootstrap';
+import { SlidesComponent } from './admin/slides/slides.component';
 
 @NgModule({
   declarations: [
@@ -87,15 +91,20 @@ import { NewComponent } from './admin/new/new.component';
     TypeMembreComponent,
     TypeNewsComponent,
     NewComponent,
+    AccueilComponent,
+    SlidesComponent,
 
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ModalModule.forRoot(),
+
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,95 @@
-<p>
-  membre works!
-</p>
+<div class="position">
+  <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Nom Membre</th>
+    <th scope="col">Numero Carte</th>
+    <th scope="col">Telephone</th>
+    <th scope="col">Date Adhesion</th>
+    <th scope="col">Type Membre</th>
+    <th scope="col">Etat</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+    <td>@mdo</td>
+    <td>@mdo</td>
+    <td>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        <label>Afficher</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+        <label>Cacher</label>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<ng-template #erreur>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Ajout Membre</h4>
+  </div>
+  <div class="modal-body ">
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label >Numero Carte</label>
+          <input type="text" class="form-control" id="numeroCarte" required>
+        </div>
+        <div class="form-group">
+          <label >Nom Complet</label>
+          <input type="text" class="form-control" id="nomMembre" required>
+        </div>
+
+        <div class="form-group">
+          <label >Telephone</label>
+          <input type="text" class="form-control" id="tel" required>
+        </div>
+
+        <div class="form-group">
+          <label >Login</label>
+          <input type="text" class="form-control" id="login" required>
+        </div>
+        <div class="form-group">
+          <label >Mot de Passe</label>
+          <input type="password" class="form-control" id="mdp" required>
+        </div>
+
+        <div class="form-group">
+          <label >Date D'Adhesion</label>
+          <input type="date" class="form-control" id="dateAdhesion" required>
+        </div>
+
+
+        <div class="form-group">
+          <label for="typeMembre">Type Membre</label>
+          <select class="form-control" id="typeMembre">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+      Annuler
+    </button>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+  </div>
+
+</ng-template>
+
+

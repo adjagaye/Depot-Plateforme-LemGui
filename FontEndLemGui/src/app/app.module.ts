@@ -47,6 +47,7 @@ import {FormsModule} from '@angular/forms';
 import { AccueilComponent } from './font/accueil/accueil.component';
 import {BsModalService, ModalModule} from 'ngx-bootstrap';
 import { SlidesComponent } from './admin/slides/slides.component';
+import {AdminService} from './shared/service/admin.service';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,7 @@ import { SlidesComponent } from './admin/slides/slides.component';
     ModalModule.forRoot(),
 
   ],
-  providers: [BsModalService],
+  providers: [BsModalService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

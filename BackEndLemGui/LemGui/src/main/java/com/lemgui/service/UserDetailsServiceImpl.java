@@ -2,7 +2,6 @@ package com.lemgui.service;
 
 import com.lemgui.entities.Membre;
 import com.lemgui.entities.Profil;
-import jdk.internal.org.objectweb.asm.Handle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

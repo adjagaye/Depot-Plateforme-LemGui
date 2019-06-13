@@ -26,7 +26,7 @@ export class MembreComponent implements OnInit {
     this.adminService.getResource("/membres")
       .subscribe(data=>{
         this.membres = data;
-        console.log(data);
+        console.log(this.membres._links.profile);
       },err=>{
           this.router.navigateByUrl("/menu");
       });

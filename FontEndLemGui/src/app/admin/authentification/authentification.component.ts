@@ -15,13 +15,12 @@ export class AuthentificationComponent implements OnInit {
   }
 
   onLogin(user){
+
     this.adminService.login(user)
       .subscribe(resp =>{
         let jwt = resp.headers.get('Authorization');
         this.adminService.saveToken(jwt);
         this.router.navigateByUrl('/menu');
-
-        console.log(resp);
       },
         err => {
           this.mode=1;

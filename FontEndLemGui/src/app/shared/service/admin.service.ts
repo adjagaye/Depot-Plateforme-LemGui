@@ -39,15 +39,18 @@ export class AdminService {
 
    login(user){
    // console.log( this.http.post(this.host+"/login",user,{observe:'response'}));
+     console.log(user);
     return   this.http.post(this.host+"/login",user,{observe:'response'});
 
   }
 
   saveToken(jwt: string){
     localStorage.setItem( 'token',jwt);
+
   }
 
   loadToken(){
     this.jwtToken = localStorage.getItem('token');
+    console.log(this.jwtToken);
   }
 }

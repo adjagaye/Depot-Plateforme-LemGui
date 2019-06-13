@@ -48,6 +48,7 @@ import { AccueilComponent } from './font/accueil/accueil.component';
 import {BsModalService, ModalModule} from 'ngx-bootstrap';
 import { SlidesComponent } from './admin/slides/slides.component';
 import {AdminService} from './shared/service/admin.service';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,6 @@ import {AdminService} from './shared/service/admin.service';
     DonsComponent,
     IndicateursComponent,
     LieuComponent,
-    MembreComponent,
     MembreCommissionComponent,
 
     PosteComponent,
@@ -103,6 +103,7 @@ import {AdminService} from './shared/service/admin.service';
     HttpClientModule,
     FormsModule,
     ModalModule.forRoot(),
+    AdminModule,
 
   ],
   providers: [BsModalService,AdminService],

@@ -61,6 +61,10 @@ public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFil
                 .signWith(signingKey,signatureAlgorithm)
                 .claim("roles", springUser.getAuthorities())
                 .compact();
+
+        System.out.println(jwt);
+
         response.addHeader(SecurityConstant.HEADER_STRING,SecurityConstant.TOKEN_PREFIX+jwt);
+
     }
 }

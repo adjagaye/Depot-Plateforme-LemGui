@@ -1,38 +1,49 @@
-<div class="position">
-  <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+<div class="container">
+  <div class="col-md-2">
+    <app-menu></app-menu>
+  </div>
+  <div class="col-md-10">
+    <div class="position">
+      <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+    </div>
+
+    <table class="table tableau" >
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nom Membre</th>
+        <th scope="col">Numero Carte</th>
+        <th scope="col">Telephone</th>
+        <th scope="col">Date Adhesion</th>
+        <th scope="col">Type Membre</th>
+        <th scope="col">Etat</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="membres">
+      <tr *ngFor="let m of membres._embedded.membres">
+        <td>{{m.nomMembre}}</td>
+        <td>{{m.numeroCarte}}</td>
+        <td>{{m.tel}}</td>
+        <td>{{m.dateAdhesion}}</td>
+        <td *ngIf="typeMembre" >{{getTypeMembre(m.idMembre)}}</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label>Afficher</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+            <label>Cacher</label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
 
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">Nom Membre</th>
-    <th scope="col">Numero Carte</th>
-    <th scope="col">Telephone</th>
-    <th scope="col">Date Adhesion</th>
-    <th scope="col">Type Membre</th>
-    <th scope="col">Etat</th>
-  </tr>
-  </thead>
-  <tbody *ngIf="membres">
-  <tr *ngFor="let m of membres._embedded.membres">
-    <td>{{m.nomMembre}}</td>
-    <td>{{m.numeroCarte}}</td>
-    <td>{{m.tel}}</td>
-    <td>{{m.dateAdhesion}}</td>
-    <td>@mdo</td>
-    <td>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-        <label>Afficher</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-        <label>Cacher</label>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+
 
 <ng-template #erreur>
   <div class="modal-header bg-primary">

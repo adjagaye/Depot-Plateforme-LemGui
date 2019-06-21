@@ -82,7 +82,8 @@ import { AdminModule } from './admin/admin.module';
     IndicateursComponent,
     LieuComponent,
     MembreCommissionComponent,
-
+    MenuComponent,
+    MembreComponent,
     PosteComponent,
     ProgrammeComponent,
     RessourceComponent,
@@ -106,7 +107,10 @@ import { AdminModule } from './admin/admin.module';
     AdminModule,
 
   ],
-  providers: [BsModalService,AdminService],
+  providers: [BsModalService, AdminService],
+  exports: [
+    MenuComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

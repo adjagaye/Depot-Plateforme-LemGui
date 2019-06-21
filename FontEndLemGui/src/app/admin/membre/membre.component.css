@@ -2,3 +2,7 @@
 .position{
   margin:20px;
 }
+
+.tableau{
+  width: content-box;
+}

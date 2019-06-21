@@ -1,48 +1,55 @@
-<div class="position">
-  <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
-</div>
+<div class="container">
+  <div class="col-md-2">
+    <app-menu></app-menu>
+  </div>
+  <div class="col-md-10">
+    <div class="position">
+      <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+    </div>
 
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">Nom</th>
-    <th scope="col">Designation</th>
-    <th scope="col">Realisation</th>
-    <th scope="col">But</th>
-    <th scope="col">Etat</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-    <td>@mdo</td>
-    <td>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-        <label>Afficher</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-        <label>Cacher</label>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
-  </tbody>
-</table>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Realisation</th>
+        <th scope="col">But</th>
+        <th scope="col">Etat</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>@mdo</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label>Afficher</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+            <label>Cacher</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <ng-template #erreur>
   <div class="modal-header bg-primary">

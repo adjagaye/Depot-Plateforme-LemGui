@@ -6,7 +6,7 @@ import {MembreComponent} from './membre/membre.component';
 
 @NgModule({
   declarations: [
-    MembreComponent,
+
 
 
 

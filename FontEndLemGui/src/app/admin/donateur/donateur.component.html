@@ -1,42 +1,49 @@
-<div class="position">
-  <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
-</div>
+<div class="container">
+  <div class="col-md-2">
+    <app-menu></app-menu>
+  </div>
+  <div class="col-md-10">
+    <div class="position">
+      <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+    </div>
 
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th scope="col">Nom Donateur</th>
-    <th scope="col">Email</th>
-    <th scope="col">Adresse Facebook</th>
-    <th scope="col">Adresse Twitter</th>
-    <th scope="col">Adresse linkedin</th>
-    <th scope="col">Adresse pinterest</th>
-    <th scope="col">Adresse</th>
-    <th scope="col">Statut</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-    <td>@mdo</td>
-    <td>@mdo</td>
-    <td>@mdo</td>
-    <td>@mdo</td>
-    <td>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-        <label>Afficher</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-        <label>Cacher</label>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nom Donateur</th>
+        <th scope="col">Email</th>
+        <th scope="col">Adresse Facebook</th>
+        <th scope="col">Adresse Twitter</th>
+        <th scope="col">Adresse linkedin</th>
+        <th scope="col">Adresse pinterest</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Statut</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="donateurs">
+      <tr *ngFor="let m of donateurs._embedded.donateurs">
+        <td>{{m.nomDonateur}}</td>
+        <td>{{m.email}}</td>
+        <td>{{m.adressFacebook}}</td>
+        <td>{{m.adresstwitter}}</td>
+        <td>{{m.adresstlinkedin}}</td>
+        <td>{{m.adressPinterest}}</td>
+        <td>{{m.adresse}}</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label>Afficher</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+            <label>Cacher</label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <ng-template #erreur>
   <div class="modal-header bg-primary">

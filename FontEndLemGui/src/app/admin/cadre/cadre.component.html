@@ -33,18 +33,6 @@
           </div>
         </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
       </tbody>
     </table>
   </div>
@@ -59,34 +47,34 @@
       <form>
         <div class="form-group">
           <label >Titre</label>
-          <input type="text" class="form-control" id="titre" required>
+          <input type="text" class="form-control" id="titre" name="titre" required>
         </div>
 
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="iconeCadre">
+          <input type="file" class="custom-file-input" id="iconeCadre" name="iconeCadre">
           <label class="custom-file-label" for="iconeCadre">Choose Icone</label>
         </div>
 
 
         <div class="form-group">
           <label >Etat</label>
-          <input type="number" class="form-control" id="etat" required>
+          <input type="number" class="form-control" id="etat" name="etat" required>
         </div>
 
         <div class="form-group">
           <label >Texte Cadre</label>
-          <textarea type="text" class="form-control" id="texte">
+          <textarea type="text" class="form-control" id="texte" name="texte">
           </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
         </div>
 
       </form>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
-      Annuler
-    </button>
-    <button type="submit" class="btn btn-success">Enregistrer</button>
   </div>
 
 </ng-template>

@@ -19,12 +19,13 @@
       </tr>
       </thead>
       <tbody *ngIf="membres">
-      <tr *ngFor="let m of membres._embedded.membres">
+      <tr *ngFor="let m of membres">
         <td>{{m.nomMembre}}</td>
         <td>{{m.numeroCarte}}</td>
         <td>{{m.tel}}</td>
         <td>{{m.dateAdhesion}}</td>
-        <td *ngIf="typeMembre" >{{getTypeMembre(m.idMembre)}}</td>
+        <td > {{m.typeMembre.libelleType}}</td>
+
         <td>
           <div class="form-check">
             <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
@@ -51,54 +52,52 @@
   </div>
   <div class="modal-body ">
     <div class="container">
-      <form>
+      <form #f="ngForm" (ngSubmit)="onSave(f.value)">
         <div class="form-group">
           <label >Numero Carte</label>
-          <input type="text" class="form-control" id="numeroCarte" required>
+          <input type="text" class="form-control" id="numeroCarte" name="numeroCarte" ngModel="" required>
         </div>
         <div class="form-group">
           <label >Nom Complet</label>
-          <input type="text" class="form-control" id="nomMembre" required>
+          <input type="text" class="form-control" id="nomMembre" name="nomMembre" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Telephone</label>
-          <input type="text" class="form-control" id="tel" required>
+          <input type="text" class="form-control" id="tel" name="tel" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Login</label>
-          <input type="text" class="form-control" id="login" required>
+          <input type="text" class="form-control" id="login" name="login" ngModel="" required>
         </div>
         <div class="form-group">
           <label >Mot de Passe</label>
-          <input type="password" class="form-control" id="mdp" required>
+          <input type="password" class="form-control" id="mdp" name="mdp" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Date D'Adhesion</label>
-          <input type="date" class="form-control" id="dateAdhesion" required>
+          <input type="date" class="form-control" id="dateAdhesion" name="dateAdhesion" ngModel="" required>
         </div>
 
 
-        <div class="form-group">
-          <label for="typeMembre">Type Membre</label>
-          <select class="form-control" id="typeMembre">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+        <div class="form-group" *ngIf="typeMembre">
+          <label for="typeMembres">Type Membre</label>
+          <select class="form-control" id="typeMembres" name="typeMembres" ngModel="">
+            <option  value="{{t.idTypeMembre}}"  *ngFor="let t of typeMembre._embedded.typeMembres" >{{t.libelleType}}</option>
           </select>
         </div>
 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
 
       </form>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
-      Annuler
-    </button>
-    <button type="submit" class="btn btn-success">Enregistrer</button>
   </div>
 
 </ng-template>

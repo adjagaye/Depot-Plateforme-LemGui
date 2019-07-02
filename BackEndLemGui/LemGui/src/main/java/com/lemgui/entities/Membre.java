@@ -1,13 +1,13 @@
 package com.lemgui.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Membre {
+public class Membre implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY )
     private long idMembre;
@@ -18,6 +18,7 @@ public class Membre {
     private String login;
     private String mdp;
     private int etat;
+
 
     @ManyToOne
     @JoinColumn(name="ID_TypeMembre")

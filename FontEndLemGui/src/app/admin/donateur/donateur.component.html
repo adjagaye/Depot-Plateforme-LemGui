@@ -51,63 +51,61 @@
   </div>
   <div class="modal-body ">
     <div class="container">
-      <form>
+      <form #f="ngForm" (ngSubmit)="onSave(f.value)">
         <div class="form-group">
           <label >Nom Donateur</label>
-          <input type="text" class="form-control" id="nomDonateur" required>
+          <input type="text" class="form-control" id="nomDonateur" name="nomDonateur" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Adresse</label>
-          <input type="text" class="form-control" id="adresse">
+          <input type="text" class="form-control" id="adresse" name="adresse" ngModel="">
         </div>
 
         <div class="form-group">
           <label >Email</label>
-          <input type="text" class="form-control" id="email" required>
+          <input type="text" class="form-control" id="email" name="email" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Adresse Facebook</label>
-          <input type="text" class="form-control" id="adressFacebook" required>
+          <input type="text" class="form-control" id="adressFacebook" name="adressFacebook" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Adresse Linkedin</label>
-          <input type="text" class="form-control" id="adresstlinkedin" required>
+          <input type="text" class="form-control" id="adresstlinkedin" name="adresstlinkedin" ngModel="" required>
         </div>
         <div class="form-group">
           <label >Adresse Pinterest</label>
-          <input type="text" class="form-control" id="adressPinterest" required>
+          <input type="text" class="form-control" id="adressPinterest" name="adressPinterest" ngModel="" required>
         </div>
         <div class="form-group">
           <label >Adresse Twitter</label>
-          <input type="text" class="form-control" id="adresstwitter" required>
+          <input type="text" class="form-control" id="adresstwitter" name="adresstwitter" ngModel="" required>
         </div>
         <div class="form-group">
           <label >Statut</label>
-          <input type="text" class="form-control" id="statut" required>
+          <input type="text" class="form-control" id="statut" name="statut" ngModel="" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="typeDonateurs">
           <label for="typeDonateur">Type Donateur</label>
-          <select class="form-control" id="typeDonateur">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select class="form-control" id="typeDonateur" name="typeDonateur" ngModel="">
+            <option *ngFor="let tdon of typeDonateurs._embedded.typeDonateurs" value="{{tdon.idTypeDonateur}}">{{tdon.libelleDonateurs}}</option>
+
           </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
         </div>
       </form>
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
-      Annuler
-    </button>
-    <button type="submit" class="btn btn-success">Enregistrer</button>
-  </div>
+
 
 </ng-template>
 

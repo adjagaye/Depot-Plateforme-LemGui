@@ -12,6 +12,7 @@ import {TypeMembre} from '../../shared/model/type-membre';
 })
 export class MembreComponent implements OnInit {
   static subscribeData:any;
+  mode:number=0;
   membres;
   m: Array<Membre> = [];
   tm: TypeMembre;
@@ -31,34 +32,15 @@ export class MembreComponent implements OnInit {
   }
   ngOnInit() {
 
-    this.adminService.getResource("/membres")
+    this.adminService.getResource("/utilisateurs")
       .subscribe(data=>{
         this.membres = data;
         console.log(data);
-       // this.m=this.membres._embedded.membres;
-        /*for (let i = 0; i < this.membres._embedded.membres.length; i++) {
-          console.log(this.membres._embedded.membres[i]);
-          console.log(this.getTypeMembre(this.membres._embedded.membres[i].idMembre));
-        }*/
-            // this.m=this.membres._embedded.membres;
 
-
-            /* for (let m of this.membres._embedded.membres) {
-               console.log(m.idMembre);
-               this.getTypeMembre(m.idMembre);
-             }*/
-        //console.log(this.membres._embedded.membres);
-       // this.getTypeMembre(this.membres._embedded.membres.idMembre);
       },err=>{
           this.router.navigateByUrl("/menu");
       });
-
-    /*this.adminService.getResource("/utilisateurs")
-      .subscribe(data=> {
-        this.membres = data;
-        console.log(data);
-      });*/
-
+    this.getTypeMembres();
 
   }
 
@@ -66,19 +48,33 @@ export class MembreComponent implements OnInit {
     this.modalRef = this.modalService.show(erreur, this.config);
   }
 
-  getTypeMembre(id:number):any{
-     this.adminService.getResource("/membres/"+id+"/typeMembre")
+
+
+  getTypeMembres(){
+    this.adminService.getResource("/typeMembres")
       .subscribe(data=>{
-        console.log(data);
-       MembreComponent.subscribeData=data;
-        console.log(MembreComponent.subscribeData);
+        // console.log(MembreComponent.subscribeData);
         this.typeMembre = data;
-        return data;
+        console.log(this.typeMembre);
       },err=>{
         this.router.navigateByUrl("/menu");
       });
 
   }
+
+  onSave(membre){
+    console.log(membre.typeMembres);
+    this.adminService.saveResource("/membres/"+membre.typeMembres,membre)
+      .subscribe(resp =>{
+          console.log(resp);
+
+          this.router.navigateByUrl('/membre');
+        },
+        err => {
+          this.mode=1;
+        });
+  }
+
 
 
 }

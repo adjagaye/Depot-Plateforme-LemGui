@@ -18,6 +18,7 @@ export class AuthentificationComponent implements OnInit {
 
     this.adminService.login(user)
       .subscribe(resp =>{
+        console.log(resp);
         let jwt = resp.headers.get('Authorization');
         this.adminService.saveToken(jwt);
         this.router.navigateByUrl('/menu');

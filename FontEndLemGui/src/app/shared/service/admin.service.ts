@@ -23,8 +23,8 @@ export class AdminService {
 
 
   public saveResource(url,objet){
-    console.log( this.http.post(this.host+url,objet));
-    return  this.http.post(this.host+url,objet);
+    //console.log( this.http.post(this.host+url,objet));
+    return  this.http.post(this.host+url,objet,{headers: new HttpHeaders({'Authorization':this.jwtToken})});
 
   }
 

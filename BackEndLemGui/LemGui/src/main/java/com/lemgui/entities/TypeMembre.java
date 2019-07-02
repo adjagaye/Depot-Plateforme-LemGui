@@ -1,15 +1,21 @@
 package com.lemgui.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class TypeMembre {
+public class TypeMembre  {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY )
     private long idTypeMembre;
     private String libelleType;
-    @OneToMany(mappedBy ="typeMembre", fetch = FetchType.LAZY)
+
+    @JsonBackReference
+    @OneToMany(mappedBy ="typeMembre")
     private List<Membre> membres;
 
     public TypeMembre() {

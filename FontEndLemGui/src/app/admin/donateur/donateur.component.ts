@@ -9,7 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./donateur.component.css']
 })
 export class DonateurComponent implements OnInit {
+  mode=0;
   donateurs;
+  typeDonateurs;
   modalRef: BsModalRef;
   config = {
     backdrop: true,
@@ -31,10 +33,35 @@ export class DonateurComponent implements OnInit {
         this.router.navigateByUrl("/menu");
       });
 
+    this.getTypeDonateurs();
   }
 
   ouvrir(erreur: TemplateRef<any>){
     this.modalRef = this.modalService.show(erreur, this.config);
   }
+
+  getTypeDonateurs(){
+    this.adminService.getResource("/typeDonateurs")
+      .subscribe(data => {
+        this.typeDonateurs = data;
+        console.log(this.typeDonateurs);
+      }, err => {
+        this.router.navigateByUrl("/menu");
+      });
+  }
+
+  onSave(donateur){
+    console.log(donateur);
+    this.adminService.saveResource("/donateurs/"+donateur.typeDonateur,donateur)
+      .subscribe(resp =>{
+          console.log(resp);
+
+          this.router.navigateByUrl('/donateur');
+        },
+        err => {
+          this.mode=1;
+        });
+  }
+
 
 }

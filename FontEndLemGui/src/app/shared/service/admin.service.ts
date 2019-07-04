@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from '@angular/common/http';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AdminService {
     console.log(this.jwtToken);
    // console.log( this.http.get(this.host+url,
     //  {headers: new HttpHeaders({'Authorization':this.jwtToken})}));
-
+    console.log(this.host+url);
     return this.http.get(this.host+url,
       {headers: new HttpHeaders({'Authorization':this.jwtToken})});
   }
@@ -24,6 +25,8 @@ export class AdminService {
 
   public saveResource(url,objet){
     //console.log( this.http.post(this.host+url,objet));
+    console.log("tesssssssssssssssst");
+    console.log(objet);
     return  this.http.post(this.host+url,objet,{headers: new HttpHeaders({'Authorization':this.jwtToken})});
 
   }
@@ -52,5 +55,16 @@ export class AdminService {
   loadToken(){
     this.jwtToken = localStorage.getItem('token');
     console.log(this.jwtToken);
+  }
+
+  uploadPhotoProduct(file:File): Observable<HttpEvent<{}>>{
+    let formdata: FormData= new FormData();
+    formdata.append('file',file);
+    const req = new HttpRequest('POST',this.host+'/images/',formdata,{
+      reportProgress:true,
+      responseType:'text'
+    });
+
+    return this.http.request(req);
   }
 }

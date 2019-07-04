@@ -3,6 +3,82 @@
     <app-menu></app-menu>
   </div>
   <div class="col-md-10">
-        works
+
+    <div class="position">
+      <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+    </div>
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Auteur</th>
+        <th scope="col">Description</th>
+        <th scope="col">Type de News</th>
+        <th scope="col">Etat</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label>Afficher</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+            <label>Cacher</label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
+<ng-template #erreur>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Ajout Cadre</h4>
+  </div>
+  <div class="modal-body ">
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label >Auteur</label>
+          <input type="text" class="form-control" id="auteur" name="auteur" ngModel="" required>
+        </div>
+
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="imageNews" ngModel="" name="imageNews" (change)="onFileSelected($event)" >
+          <label class="custom-file-label" for="imageNews">Choose Image</label>
+        </div>
+
+        <div class="form-group">
+          <label >Description New</label>
+          <textarea type="text" class="form-control" id="descriptionNews" ngModel="" name="descriptionNews">
+          </textarea>
+        </div>
+
+        <div class="form-group" >
+          <label for="typeNews">Type Membre</label>
+          <select class="form-control" id="typeNews" name="typeNews" ngModel="">
+            <option   ></option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</ng-template>
+
+

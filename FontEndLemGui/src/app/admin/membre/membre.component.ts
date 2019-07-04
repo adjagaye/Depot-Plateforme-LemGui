@@ -40,6 +40,7 @@ export class MembreComponent implements OnInit {
       },err=>{
           this.router.navigateByUrl("/menu");
       });
+
     this.getTypeMembres();
 
   }

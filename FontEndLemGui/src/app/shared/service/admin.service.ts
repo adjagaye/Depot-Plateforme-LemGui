@@ -57,14 +57,19 @@ export class AdminService {
     console.log(this.jwtToken);
   }
 
-  uploadPhotoProduct(file:File): Observable<HttpEvent<{}>>{
+  uploadPhotoProduct(file:File,cadre): Observable<HttpEvent<{}>>{
     let formdata: FormData= new FormData();
     formdata.append('file',file);
+    formdata.append('cadre',JSON.stringify(cadre));
+    console.log(formdata);
+    if(this.jwtToken == null ) this.loadToken();
+    console.log(this.jwtToken);
     const req = new HttpRequest('POST',this.host+'/images/',formdata,{
       reportProgress:true,
-      responseType:'text'
+      responseType:'text',
+      headers: new HttpHeaders({'Authorization':this.jwtToken})
     });
-
+    console.log(req);
     return this.http.request(req);
   }
 }

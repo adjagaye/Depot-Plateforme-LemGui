@@ -21,6 +21,7 @@ export class CadreComponent implements OnInit {
   currentUploadFile: any;
   mode=0;
   progress: number;
+  cadres;
 
   constructor(private modalService: BsModalService,private adminService: AdminService,
               private router:Router) {
@@ -29,6 +30,14 @@ export class CadreComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.adminService.getResource("/cadres")
+      .subscribe(data=>{
+        this.cadres = data;
+        console.log(data);
+
+      },err=>{
+        this.router.navigateByUrl("/menu");
+      });
 
   }
 
@@ -37,16 +46,16 @@ export class CadreComponent implements OnInit {
   }
 
   onFileSelected(event){
-    console.log(event);
     this.selectedFile = event.target.files;
 
   }
 
-  onUpload(){
+  onUpload(cadre){
     this.progress = 0;
+    console.log(cadre);
     this.currentUploadFile = this.selectedFile.item(0);
 
-    this.adminService.uploadPhotoProduct(this.currentUploadFile)
+    this.adminService.uploadPhotoProduct(this.currentUploadFile,cadre)
       .subscribe(event =>{
          if(event.type === HttpEventType.UploadProgress){
             this.progress = Math.round(100 * event.loaded / event.total)

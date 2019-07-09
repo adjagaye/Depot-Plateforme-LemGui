@@ -11,16 +11,16 @@ public class Cadre {
     private int idCadre;
     private String titre;
     private String iconeCadre;
-    private String text;
+    private String texte;
     private int etat;
 
     public Cadre() {
     }
 
-    public Cadre(String titre, String iconeCadre, String text, int etat) {
+    public Cadre(String titre, String iconeCadre, String texte, int etat) {
         this.titre = titre;
         this.iconeCadre = iconeCadre;
-        this.text = text;
+        this.texte = texte;
         this.etat = etat;
     }
 
@@ -56,11 +56,11 @@ public class Cadre {
         this.etat = etat;
     }
 
-    public String getText() {
-        return text;
+    public String getTexte() {
+        return texte;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTexte(String texte) {
+        this.texte = texte;
     }
 }

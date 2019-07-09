@@ -1,13 +1,11 @@
 package com.lemgui.web;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lemgui.entities.Cadre;
-import com.lemgui.entities.Membre;
 import com.lemgui.service.CadreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 @RestController
 public class CadreController {
@@ -26,13 +24,28 @@ public class CadreController {
 
     }*/
 
-    @PostMapping("/images")
-    public String getImages(@RequestParam("file") MultipartFile file)
+    @PostMapping("/images/")
+    public Cadre getImages(@RequestParam("file") MultipartFile file,@RequestParam("cadre") String c)
     {
+        Cadre cadre = new Cadre();
         System.out.println("adja gaye");
-        String message;
-        message="Work";
-        return message;
+        System.out.println(file.getOriginalFilename());
+        System.out.println(c);
+
+        try
+        {
+            ObjectMapper mapper = new ObjectMapper();
+            cadre = mapper.readValue(c, Cadre.class);
+
+
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error while converting JSON string to Student object.");
+            ex.printStackTrace();
+        }
+
+        return cadreRepository.save(cadre);
 
     }
 }

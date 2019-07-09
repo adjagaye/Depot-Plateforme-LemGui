@@ -11,17 +11,17 @@
     <table class="table">
       <thead class="thead-dark">
       <tr>
+        <th scope="col">Identifiant</th>
         <th scope="col">Titre</th>
         <th scope="col">Texte</th>
-        <th scope="col">icone</th>
         <th scope="col">Etat</th>
       </tr>
       </thead>
-      <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tbody *ngIf="cadres">
+      <tr *ngFor="let c of cadres._embedded.cadres">
+        <td>{{c.idCadre}}</td>
+        <td>{{c.titre}}</td>
+        <td>{{c.texte}}</td>
         <td>
           <div class="form-check">
             <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
@@ -44,7 +44,7 @@
   </div>
   <div class="modal-body ">
     <div class="container">
-      <form>
+      <form #f="ngForm" (ngSubmit)="onUpload(f.value)" >
         <div class="form-group">
           <label >Titre</label>
           <input type="text" class="form-control" id="titre" name="titre" ngModel="" required>
@@ -70,7 +70,7 @@
           <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
             Annuler
           </button>
-          <button type="submit" class="btn btn-success" (click)="onUpload()">Enregistrer</button>
+          <button type="submit" class="btn btn-success" >Enregistrer</button>
         </div>
 
       </form>

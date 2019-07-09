@@ -1,9 +1,6 @@
 package com.lemgui;
 
-import com.lemgui.entities.Donateur;
-import com.lemgui.entities.Membre;
-import com.lemgui.entities.TypeDonateur;
-import com.lemgui.entities.TypeMembre;
+import com.lemgui.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +25,6 @@ public class LemGuiApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		repositoryRestConfiguration.exposeIdsFor(Membre.class, TypeMembre.class, Donateur.class, TypeDonateur.class);
+		repositoryRestConfiguration.exposeIdsFor(Membre.class, TypeMembre.class, Donateur.class, TypeDonateur.class, Cadre.class);
 	}
 }

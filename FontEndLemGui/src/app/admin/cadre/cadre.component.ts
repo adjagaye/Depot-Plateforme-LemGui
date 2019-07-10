@@ -55,7 +55,7 @@ export class CadreComponent implements OnInit {
     console.log(cadre);
     this.currentUploadFile = this.selectedFile.item(0);
 
-    this.adminService.uploadPhotoProduct(this.currentUploadFile,cadre)
+    this.adminService.uploadPhotoProduct(this.currentUploadFile,cadre,"/images/")
       .subscribe(event =>{
          if(event.type === HttpEventType.UploadProgress){
             this.progress = Math.round(100 * event.loaded / event.total)

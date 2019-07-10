@@ -10,6 +10,7 @@
     <table class="table">
       <thead class="thead-dark">
       <tr>
+        <th scope="col">Identifiant</th>
         <th scope="col">Nom</th>
         <th scope="col">Designation</th>
         <th scope="col">Realisation</th>
@@ -17,12 +18,14 @@
         <th scope="col">Etat</th>
       </tr>
       </thead>
-      <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tbody *ngIf="domaines">
+      <tr *ngFor="let d of domaines._embedded.domaines">
+        <td>{{d.idDomaine}}</td>
+        <td>{{d.nomDomaine}}</td>
+        <td>{{d.descriptionDomaine}}</td>
+        <td>{{d.realisation}}</td>
+        <td>{{d.but}}</td>
+
         <td>
           <div class="form-check">
             <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
@@ -33,18 +36,6 @@
             <label>Cacher</label>
           </div>
         </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
       </tr>
       </tbody>
     </table>
@@ -57,41 +48,44 @@
   </div>
   <div class="modal-body ">
     <div class="container">
-      <form (ngSubmit)="onSubmit()">
+      <form #f="ngForm" (ngSubmit)="onUpload(f.value)">
         <div class="form-group">
           <label >Nom Domaine</label>
-          <input type="text" class="form-control" id="nomDomaine" required>
+          <input type="text" class="form-control" id="nomDomaine" name="nomDomaine" ngModel="" required>
         </div>
 
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="imageDomaine">
+          <label >Image Domaine</label>
+          <input type="file" class="custom-file-input" id="imageDomaine" name="imageDomaine" (change)="onFileSelected($event)" ngModel="">
           <label class="custom-file-label" for="imageDomaine">Choose Image</label>
         </div>
 
         <div class="form-group">
           <label >But</label>
-          <input type="number" class="form-control" id="but" required>
+          <input type="number" class="form-control" id="but" name="but" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Etat</label>
-          <input type="number" class="form-control" id="etat" required>
+          <input type="number" class="form-control" id="etat" name="etat" ngModel="" required>
         </div>
 
         <div class="form-group">
           <label >Description</label>
-          <textarea type="text" class="form-control" id="descriptionDomaine">
+          <textarea type="text" class="form-control" id="descriptionDomaine" name="descriptionDomaine" ngModel="">
           </textarea>
         </div>
 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+
+
       </form>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
-      Annuler
-    </button>
-    <button type="submit" class="btn btn-success">Enregistrer</button>
   </div>
 
 </ng-template>

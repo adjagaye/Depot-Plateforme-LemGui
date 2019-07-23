@@ -3,8 +3,82 @@
     <app-menu></app-menu>
   </div>
   <div class="col-md-10">
-    <p>
-      programme works!
-    </p>
+
+    <div class="position">
+      <button type="button" class="btn btn-primary btn-lg" (click)="ouvrir(erreur)">Ajouter</button>
+    </div>
+
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Année</th>
+        <th scope="col">Date Début</th>
+        <th scope="col">Date Fin</th>
+        <th scope="col">Etat</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="programmes">
+      <tr *ngFor="let p of programmes._embedded.programmes">
+        <td>{{p.idProgramme}}</td>
+        <td>{{p.annee}}</td>
+        <td>{{p.dateDebut}}</td>
+        <td>{{p.dateFin}}</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+            <label>Afficher</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+            <label>Cacher</label>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
+<ng-template #erreur>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Ajout Programme</h4>
+  </div>
+  <div class="modal-body ">
+    <div class="container">
+      <form #f="ngForm" (ngSubmit)="onUpload(f.value)">
+
+        <div class="form-group">
+          <label >Anée</label>
+          <input type="number" class="form-control" id="annee" name="annee" ngModel="" required>
+        </div>
+
+        <div class="form-group">
+          <label >Date de Debut</label>
+          <input type="date" class="form-control" id="dateDebut" name="dateDebut" ngModel="" required>
+        </div>
+
+        <div class="form-group">
+          <label >Date de Fin</label>
+          <input type="date" class="form-control" id="dateFin" name="dateFin" ngModel="" required>
+        </div>
+
+
+        <div class="form-group">
+          <label >Etat</label>
+          <input type="number" class="form-control" id="etat" name="etat" ngModel="" required>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger pull-left" (click)="modalRef.hide()">
+            Annuler
+          </button>
+          <button type="submit" class="btn btn-success">Enregistrer</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</ng-template>

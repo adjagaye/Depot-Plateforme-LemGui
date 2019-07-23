@@ -26,6 +26,6 @@ public class LemGuiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		repositoryRestConfiguration.exposeIdsFor(Membre.class, TypeMembre.class, Donateur.class, TypeDonateur.class,
-				Cadre.class,Domaine.class);
+				Cadre.class,Domaine.class, TypeNews.class, News.class,Programme.class);
 	}
 }

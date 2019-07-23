@@ -11,7 +11,6 @@ import {TypeMembre} from '../../shared/model/type-membre';
   styleUrls: ['./membre.component.css']
 })
 export class MembreComponent implements OnInit {
-  static subscribeData:any;
   mode:number=0;
   membres;
   m: Array<Membre> = [];

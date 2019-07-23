@@ -18,10 +18,11 @@ public class News {
     public News() {
     }
 
-    public News(String imageNews, String descriptionNews, String auteur) {
+    public News(String imageNews, String descriptionNews, String auteur,  TypeNews typeNews) {
         this.imageNews = imageNews;
         this.descriptionNews = descriptionNews;
         this.auteur = auteur;
+        this.typeNews = typeNews;
     }
 
     public long getIdNews() {
@@ -54,5 +55,13 @@ public class News {
 
     public void setAuteur(String auteur) {
         this.auteur = auteur;
+    }
+
+    public TypeNews getTypeNews() {
+        return typeNews;
+    }
+
+    public void setTypeNews(TypeNews typeNews) {
+        this.typeNews = typeNews;
     }
 }

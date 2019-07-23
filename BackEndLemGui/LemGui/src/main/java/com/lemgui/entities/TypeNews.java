@@ -1,5 +1,7 @@
 package com.lemgui.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class TypeNews {
     private String libTypeNews;
     private int etat;
 
+    @JsonBackReference
     @OneToMany(mappedBy ="typeNews", fetch = FetchType.LAZY)
     private List<News> news;
 

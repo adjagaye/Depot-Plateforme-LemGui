@@ -11,17 +11,19 @@
     <table class="table">
       <thead class="thead-dark">
       <tr>
+        <th scope="col">Identifiant</th>
         <th scope="col">Auteur</th>
         <th scope="col">Description</th>
         <th scope="col">Type de News</th>
         <th scope="col">Etat</th>
       </tr>
       </thead>
-      <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tbody *ngIf="news">
+      <tr  *ngFor="let n of news">
+        <td>{{n.idNews}}</td>
+        <td>{{n.auteur}}</td>
+        <td>{{n.descriptionNews}}</td>
+        <td>{{n.typeNews.libTypeNews}}</td>
         <td>
           <div class="form-check">
             <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
@@ -44,7 +46,7 @@
   </div>
   <div class="modal-body ">
     <div class="container">
-      <form>
+      <form #f="ngForm" (ngSubmit)="onUpload(f.value)">
         <div class="form-group">
           <label >Auteur</label>
           <input type="text" class="form-control" id="auteur" name="auteur" ngModel="" required>
@@ -61,10 +63,10 @@
           </textarea>
         </div>
 
-        <div class="form-group" >
-          <label for="typeNews">Type Membre</label>
+        <div class="form-group" *ngIf="typeNews">
+          <label for="typeNews">Type News</label>
           <select class="form-control" id="typeNews" name="typeNews" ngModel="">
-            <option   ></option>
+            <option   value="{{t.idTypeNews}}"  *ngFor="let t of typeNews._embedded.typeNews">{{t.libTypeNews}}</option>
           </select>
         </div>
 

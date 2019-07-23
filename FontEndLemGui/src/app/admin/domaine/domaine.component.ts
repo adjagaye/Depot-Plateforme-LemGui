@@ -28,10 +28,7 @@ export class DomaineComponent implements OnInit {
               private router:Router) {
     // customize default values of modals used by this component tree
 
-  }fileProgress(fileInput: any) {
-    this.fileData = <File>fileInput.target.files[0];
   }
-
 
   ngOnInit() {
     this.adminService.getResource("/domaines")
@@ -60,13 +57,13 @@ export class DomaineComponent implements OnInit {
     console.log(domaine);
     this.currentUploadFile = this.selectedFile.item(0);
 
-    this.adminService.uploadPhotoProduct(this.currentUploadFile,domaine,"/SaveDomaines/")
+    this.adminService.uploadPhotoProduct(this.currentUploadFile,domaine,"/saveDomaines/")
       .subscribe(event =>{
           if(event.type === HttpEventType.UploadProgress){
             this.progress = Math.round(100 * event.loaded / event.total)
 
           }else if (event instanceof HttpResponse) {
-            alert("Probleme de telechargement...");
+            alert("Fin de telechargement...");
           }
         },
         err => {
@@ -74,5 +71,4 @@ export class DomaineComponent implements OnInit {
         });
 
   }
-  I
 }

@@ -1,0 +1,8 @@
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
+.position{
+  margin:20px;
+}
+
+.tableau{
+  width: content-box;
+}

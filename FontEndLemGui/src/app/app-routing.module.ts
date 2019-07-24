@@ -61,7 +61,7 @@ const routes: Routes = [
   { path: 'new', component: NewComponent },
   { path: 'poste', component: PosteComponent },
   { path: 'programme', component: ProgrammeComponent },
-  { path: 'resssource', component: RessourceComponent },
+  { path: 'ressource', component: RessourceComponent },
   { path: 'tache', component: TacheComponent },
   { path: 'typeactivite', component: TypeActiviteComponent },
   { path: 'typedonateur', component: TypeDonateurComponent },
@@ -71,7 +71,7 @@ const routes: Routes = [
   { path: 'slide', component: SlidesComponent},
   { path: 'cadre', component: CadreComponent},
   { path: 'accueil', component: AccueilComponent},
-  {path:'',redirectTo: '/authentification',pathMatch:'full'}
+
 
 ];
 

@@ -71,6 +71,7 @@ const routes: Routes = [
   { path: 'slide', component: SlidesComponent},
   { path: 'cadre', component: CadreComponent},
   { path: 'accueil', component: AccueilComponent},
+  { path: '', redirectTo: 'authentification', pathMatch: 'full' }
 
 
 ];

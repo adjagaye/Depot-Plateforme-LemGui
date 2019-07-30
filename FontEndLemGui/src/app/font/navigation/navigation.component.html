@@ -12,12 +12,12 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right ">
-        <li><a href="#header"  >Accueil</a></li>
-        <li><a href="#services" >Qui Sommes Nous?</a></li>
-        <li><a href="#services"  >Domaines Actions</a></li>
-        <li><a href="#team"     >Nos Donateurs</a></li>
-        <li><a href="#news"  >News</a></li>
-        <li><a href="#contact"   >contact</a></li>
+        <li><a routerLink="./" [fragment]="'header'">Accueil</a></li>
+        <li><a routerLink="./" [fragment]="'services'" >Qui Sommes Nous?</a></li>
+        <li><a routerLink="./" [fragment]="'services'" >Domaines Actions</a></li>
+        <li><a routerLink="./" [fragment]="'team'" >Nos Donateurs</a></li>
+        <li><a routerLink="./" [fragment]="'news'" >News</a></li>
+        <li><a routerLink="./" [fragment]="'contact'" >contact</a></li>
         <li><a (click)="authentifier()" >Se Connecter</a></li>
         <li ><button  class=" btn btn-sm btn-primary btn-nav-don">Faire un Don</button></li>
       </ul>

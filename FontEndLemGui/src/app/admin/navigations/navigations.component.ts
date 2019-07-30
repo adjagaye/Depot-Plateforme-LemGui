@@ -4,11 +4,11 @@ import {AdminService} from "../../shared/service/admin.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-type-donateur',
-  templateUrl: './type-donateur.component.html',
-  styleUrls: ['./type-donateur.component.css']
+  selector: 'app-navigations',
+  templateUrl: './navigations.component.html',
+  styleUrls: ['./navigations.component.css']
 })
-export class TypeDonateurComponent implements OnInit {
+export class NavigationsComponent implements OnInit {
   private mode: number=0;
   modalRef: BsModalRef;
   config = {
@@ -16,38 +16,38 @@ export class TypeDonateurComponent implements OnInit {
     ignoreBackdropClick: true,
     keyboard: false,
   };
-  private typeDonateurs;
+  private menus;
 
   constructor(private modalService: BsModalService,private adminService: AdminService,
               private router:Router) { }
 
   ngOnInit() {
-    this.adminService.getResource("/typeDonateurs")
+    this.adminService.getResource("/menus")
       .subscribe(data=>{
-        this.typeDonateurs = data;
+        this.menus = data;
         console.log(data);
 
       },err=>{
-        this.router.navigateByUrl("/typeDonateurs");
+        this.router.navigateByUrl("/menu");
       });
 
   }
+
   ouvrir(erreur: TemplateRef<any>){
     this.modalRef = this.modalService.show(erreur, this.config);
   }
 
-  onUpload(typeDonateurs) {
-    console.log(typeDonateurs);
-    this.adminService.saveResource("/typeDonateurs",typeDonateurs)
+  onUpload(menu) {
+    console.log(menu);
+    this.adminService.saveResource("/menus",menu)
       .subscribe(resp =>{
           console.log(resp);
 
-          this.router.navigateByUrl('/typeDonateurs');
+          this.router.navigateByUrl('/programme');
         },
         err => {
           this.mode=1;
         });
 
   }
-
 }

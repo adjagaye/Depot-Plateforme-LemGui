@@ -34,6 +34,8 @@ import {AuthentificationComponent} from './admin/authentification/authentificati
 import {NewComponent} from './admin/new/new.component';
 import {AccueilComponent} from './font/accueil/accueil.component';
 import {SlidesComponent} from './admin/slides/slides.component';
+import {NavigationsComponent} from "./admin/navigations/navigations.component";
+import {TesterComponent} from "./admin/tester/tester.component";
 
 const routes: Routes = [
   { path: 'actviteindicateur', component: ActiviteIndicateurComponent },
@@ -71,13 +73,18 @@ const routes: Routes = [
   { path: 'slide', component: SlidesComponent},
   { path: 'cadre', component: CadreComponent},
   { path: 'accueil', component: AccueilComponent},
+  { path: 'navigations', component: NavigationsComponent},
+  { path: 'tester', component: TesterComponent },
   { path: '', redirectTo: 'authentification', pathMatch: 'full' }
 
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

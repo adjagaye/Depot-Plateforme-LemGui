@@ -3865,7 +3865,7 @@ div.DTE_Inline div.DTE_Field input {
   /* IE10+ */
   background: -o-linear-gradient(top, #ffffff 0%, #f3f3f3 89%, #f9f9f9 100%);
   /* Opera 11.10+ */
-  background: linear-gradient(top, #ffffff 0%, #f3f3f3 89%, #f9f9f9 100%);
+  background: linear-gradient(to top, #ffffff 0%, #f3f3f3 89%, #f9f9f9 100%);
   /* W3C */
   /* IE6-9 */
   opacity: 0.95;
@@ -5268,7 +5268,7 @@ input.ui-editRangeSlider-inputValue {
   background: none;
 }
 .ui-rangeSlider .ui-rangeSlider-handle-inner {
-  background: url(../img/plugins/slider-knob.png) no-repeat center top;
+  /*background: url(../img/plugins/slider-knob.png) no-repeat center top;*/
   width: 22px;
   height: 24px;
 }
@@ -13135,9 +13135,9 @@ button.close {
 .bg-background.bg-topbar2 {
   background: url("../../../img/patterns/topbar-bg2.jpg") no-repeat center left;
 }
-.bg-background.bg-topbar3 {
+/*.bg-background.bg-topbar3 {
   background: url("../../../img/patterns/topbar-bg3.jpg") no-repeat center left;
-}
+}*/
 .bg-background.bg-psuedo-tp:before,
 .bg-background.bg-psuedo-tp-dark:before,
 .bg-background.bg-psuedo-tp-light:before {
@@ -24422,7 +24422,7 @@ blockquote.blockquote-dark {
 @media (min-width: 1140px) {
   body.boxed-layout {
     background-color: transparent !important;
-    background-image: url("../../../img/patterns/noise.png");
+    /*background-image: url("../../../img/patterns/noise.png");*/
     background-repeat: repeat;
   }
   body.boxed-layout .navbar {

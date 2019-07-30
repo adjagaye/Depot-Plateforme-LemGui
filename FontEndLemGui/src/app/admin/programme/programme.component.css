@@ -6,3 +6,25 @@
 .tableau{
   width: content-box;
 }
+
+.btn-system {
+  color: #ffffff;
+  background-color: #37bc9b;
+}
+
+.btn-system .badge {
+  color: #37bc9b;
+  background-color: #ffffff;
+}
+.btn-system.light {
+  background-color: #48c9a9;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.bs-component {
+  position: relative;
+}

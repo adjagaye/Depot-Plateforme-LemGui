@@ -23,14 +23,8 @@
             <span class="sidebar-title">Membre</span>
           </a>
         </li>
-        <li class="active">
-          <a routerLink="/new">
-            <span class="glyphicon glyphicon-home"></span>
-            <span class="sidebar-title">News</span>
-          </a>
-        </li>
         <li>
-          <a class="accordion-toggle menu-open" href="#">
+          <a class="accordion-toggle" href="#">
             <span class="fa fa-columns"></span>
             <span class="sidebar-title">Apparences</span>
             <span class="caret"></span>
@@ -58,27 +52,58 @@
               </a>
             </li>
             <li>
-              <a class="accordion-toggle menu-open" routerLink="/slide">
+              <a class="accordion-toggle" routerLink="/slide">
                 <span class="fa fa-arrows-v"></span>
                 Slide
                 <span class="caret"></span>
               </a>
             </li>
             <li>
-              <a class="accordion-toggle" routerLink="menu">
+              <a class="accordion-toggle" routerLink="/navigations">
                 <span class="fa fa-pause"></span>
                 Menu
                 <span class="caret"></span>
               </a>
             </li>
+
+            <li class="active">
+              <a routerLink="/new">
+                <span class="glyphicon glyphicon-home"></span>
+                <span class="sidebar-title">News</span>
+              </a>
+            </li>
+
           </ul>
         </li>
         <li>
-          <a class="accordion-toggle" routerLink="/ressourceù">
+          <a class="accordion-toggle" routerLink="/ressource">
             <span class="glyphicon glyphicon-fire"></span>
             <span class="sidebar-title">Ressources</span>
             <span class="caret"></span>
           </a>
+          <ul class="nav sub-nav">
+            <li>
+              <a class="accordion-toggle" routerLink="/typenews">
+                <span class="fa fa fa-arrows-h"></span>
+                Type News
+                <span class="caret"></span>
+              </a>
+            </li>
+            <li>
+              <a class="accordion-toggle" routerLink="/typemembre">
+                <span class="fa fa fa-arrows-h"></span>
+                Type Membre
+                <span class="caret"></span>
+              </a>
+            </li>
+            <li>
+              <a class="accordion-toggle" routerLink="/typedonateur">
+                <span class="fa fa fa-arrows-h"></span>
+                Type Donateur
+                <span class="caret"></span>
+              </a>
+            </li>
+          </ul>
         </li>
         <li>
           <a class="accordion-toggle" href="#">

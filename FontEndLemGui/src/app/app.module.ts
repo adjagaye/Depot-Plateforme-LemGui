@@ -48,7 +48,8 @@ import { AccueilComponent } from './font/accueil/accueil.component';
 import {BsModalService, ModalModule} from 'ngx-bootstrap';
 import { SlidesComponent } from './admin/slides/slides.component';
 import {AdminService} from './shared/service/admin.service';
-import { AdminModule } from './admin/admin.module';
+import {NavigationsComponent} from "./admin/navigations/navigations.component";
+import { TesterComponent } from './admin/tester/tester.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,8 @@ import { AdminModule } from './admin/admin.module';
     NewComponent,
     AccueilComponent,
     SlidesComponent,
+    NavigationsComponent,
+    TesterComponent,
 
 
   ],
@@ -104,8 +107,6 @@ import { AdminModule } from './admin/admin.module';
     HttpClientModule,
     FormsModule,
     ModalModule.forRoot(),
-    AdminModule,
-
   ],
   providers: [BsModalService, AdminService],
   exports: [
